@@ -1,3 +1,8 @@
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(...inputs))
+
 export const tiers = [
     { level: 1, limit: 2000, rate: 19.33 },
     { level: 2, limit: 3000, rate: 45.11 },

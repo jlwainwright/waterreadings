@@ -16,7 +16,7 @@ export const tiers = [
     let totalCost = 0
     const breakdown: TierBreakdown[] = []
   
-    tiers.forEach((tier) => {
+    tiers.forEach(() => {
       const tierUsage = Math.min(remainingUsage, tier.limit)
       const tierCost = tierUsage * tier.rate
       totalCost += tierCost
