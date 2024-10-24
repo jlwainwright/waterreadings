@@ -21,7 +21,7 @@ const SelectValue = dynamic(() => import("@/components/ui/select").then(mod => m
 
 import { motion } from "framer-motion"
 import { Info, Droplet } from "lucide-react"
-import Login from "./login"
+import Login from "./login.tsx"
 import { tiers, calculateBill, TierBreakdown, Meter } from "./utils"
 
 export default function WaterBillCalculator() {
