@@ -1,0 +1,25 @@
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/waterbill
+      - NEXTAUTH_SECRET=your_nextauth_secret
+      - GOOGLE_CLIENT_ID=your_google_client_id
+      - GOOGLE_CLIENT_SECRET=your_google_client_secret
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=waterbill
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -1,0 +1,15 @@
+
+# Next.js Best Practices for watervending
+
+## 1. Project Structure
+
+- Use the App Router for new projects
+- Organize components, pages, and API routes in separate directories
+- Utilize the `src` directory for better organization
+
+## 2. TypeScript
+
+- Use TypeScript for type safety and better developer experience
+- Leverage TypeScript's advanced features like generics and utility types
+
+...(add more Next.js specific rules)...
