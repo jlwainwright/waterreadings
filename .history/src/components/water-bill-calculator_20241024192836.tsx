@@ -70,8 +70,8 @@ export default function WaterBillCalculator() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log('API Response:', data); // Log the API response
-      setPreviousReading(data.previousReading?.value || null); // Safely access the value
+      console.log(data); // Debug: Check the data structure
+      setPreviousReading(data.previousReading); // Ensure this is correct
       setError(null);
     } catch (error) {
       console.error('Error fetching previous reading:', error);
@@ -155,7 +155,7 @@ export default function WaterBillCalculator() {
             {previousReading !== null && (
               <div className="mt-4">
                 <Label>Previous Reading</Label>
-                <Input value={previousReading.toString()} disabled />
+                <Input value={previousReading?.toString() || ''} disabled />
               </div>
             )}
             <div className="space-y-2">

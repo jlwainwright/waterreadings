@@ -3,9 +3,9 @@ import { getPreviousReading } from '@/lib/readings'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  const id = params.id; // Ensure params are destructured correctly
+  const { id } = context.params; // Destructure params correctly
 
   try {
     const previousReading = await getPreviousReading(id);
@@ -14,7 +14,7 @@ export async function GET(
       return NextResponse.json({ error: 'No previous reading found' }, { status: 404 });
     }
     
-    return NextResponse.json({ previousReading });
+    return NextResponse.json(previousReading);
   } catch (error) {
     console.error('Error fetching previous reading:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

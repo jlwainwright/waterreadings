@@ -70,8 +70,8 @@ export default function WaterBillCalculator() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      console.log('API Response:', data); // Log the API response
-      setPreviousReading(data.previousReading?.value || null); // Safely access the value
+      console.log(data); // Debug: Check the data structure
+      setPreviousReading(data.previousReading.value); // Access the correct property
       setError(null);
     } catch (error) {
       console.error('Error fetching previous reading:', error);

@@ -65,20 +65,19 @@ export default function WaterBillCalculator() {
 
   const fetchPreviousReading = async (meterId: string) => {
     try {
-      const response = await fetch(`/api/meters/${meterId}/previous-reading`);
+      const response = await fetch(`/api/meters/${meterId}/previous-reading`)
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.status}`)
       }
-      const data = await response.json();
-      console.log('API Response:', data); // Log the API response
-      setPreviousReading(data.previousReading?.value || null); // Safely access the value
-      setError(null);
+      const data = await response.json()
+      setPreviousReading(data.previousReading)
+      setError(null)
     } catch (error) {
-      console.error('Error fetching previous reading:', error);
-      setPreviousReading(null);
-      setError('Failed to fetch previous reading. Please try again later.');
+      console.error('Error fetching previous reading:', error)
+      setPreviousReading(null)
+      setError('Failed to fetch previous reading. Please try again later.')
     }
-  };
+  }
 
   const handleMeterChange = (value: string) => {
     setSelectedMeter(value)
@@ -152,10 +151,10 @@ export default function WaterBillCalculator() {
                 </SelectContent>
               </Select>
             </div>
-            {previousReading !== null && (
+            {previousReading !== undefined && (
               <div className="mt-4">
                 <Label>Previous Reading</Label>
-                <Input value={previousReading.toString()} disabled />
+                <Input value={previousReading?.toString() || ''} disabled />
               </div>
             )}
             <div className="space-y-2">
