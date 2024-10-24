@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
-    domains: ['waterreadings.jacqueswainwright.com'],
+    domains: ['waterreading.jacqueswainwright.com'],
   },
   /* config options here */
 };
