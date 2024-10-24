@@ -1,4 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server'
+import { getPreviousReading } from '../../../lib/readings';
 
 export async function GET() {
   // This is a mock implementation. Replace with actual data fetching logic when ready.
